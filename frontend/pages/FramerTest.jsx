@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import styled from "styled-components"
 
 export const FramerTest = () => (
   <div className='example-container mt-5 flex justify-center content-center'>
