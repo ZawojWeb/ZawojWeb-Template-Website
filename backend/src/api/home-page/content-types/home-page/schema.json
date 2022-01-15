@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "HomePage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FristText": {
+      "type": "string"
+    },
+    "BigText": {
+      "type": "string"
+    },
+    "SmallText": {
+      "type": "string"
+    },
+    "InfoCard": {
+      "displayName": "Card",
+      "type": "component",
+      "repeatable": true,
+      "component": "card.card",
+      "max": 4,
+      "min": 4
+    }
+  }
+}
