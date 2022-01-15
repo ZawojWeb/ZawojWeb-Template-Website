@@ -1,28 +1,26 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, ScaleIcon } from "@heroicons/react/outline"
-import axios from "axios"
 
-function Page({ events }) {
-  console.log(events)
+const NextTest = ({ info }) => {
   const features = [
     {
-      name: `${events}`,
-      description: "Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config needed.",
+      name: info.InfoCard[0].name,
+      description: info.InfoCard[0].text,
       icon: GlobeAltIcon,
     },
     {
-      name: "TailwindCSS",
-      description: "A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.",
+      name: info.InfoCard[1].name,
+      description: info.InfoCard[1].text,
       icon: ScaleIcon,
     },
     {
-      name: "Framer Motion",
-      description: "A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source.",
+      name: info.InfoCard[2].name,
+      description: info.InfoCard[2].text,
       icon: LightningBoltIcon,
     },
     {
-      name: "Strapi CMS",
-      description: "Strapi is the leading open-source headless CMS. It’s 100% JavaScript, fully customizable and developer-first.",
+      name: info.InfoCard[3].name,
+      description: info.InfoCard[3].text,
       icon: AnnotationIcon,
     },
   ]
@@ -30,9 +28,9 @@ function Page({ events }) {
     <div className='py-12 bg-white'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='lg:text-center'>
-          <h2 className='text-base text-indigo-600 font-semibold tracking-wide uppercase'>{console.log(events)}</h2>
-          <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>Website Template</p>
-          <p className='mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto'>Currently it's the best way of making websites</p>
+          <h2 className='text-base text-indigo-600 font-semibold tracking-wide uppercase'>{info.FristText}</h2>
+          <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>{info.BigText}</p>
+          <p className='mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto'>{info.SmallText}</p>
         </div>
 
         <div className='mt-10'>
@@ -55,14 +53,4 @@ function Page({ events }) {
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch(`http://localhost:1337/api/home-page?populate=*`)
-  const events = await res.json()
-
-  return {
-    props: { events },
-    revalidate: 1,
-  }
-}
-
-export default Page
+export default NextTest
